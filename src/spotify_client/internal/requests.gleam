@@ -2,7 +2,7 @@ import gleam/bit_array
 import gleam/dynamic/decode.{type Decoder}
 import gleam/http.{Get}
 import gleam/http/request.{type Request, Request}
-import gleam/http/response.{type Response}
+import gleam/http/response
 import gleam/httpc
 import gleam/json
 import gleam/option.{Some}
