@@ -1,4 +1,3 @@
-import gleam/dynamic
 import gleam/dynamic/decode
 import gleam/float
 import gleam/json
@@ -6,7 +5,7 @@ import gleam/time/timestamp
 
 pub fn timestamp_decoder() -> decode.Decoder(timestamp.Timestamp) {
   decode.new_primitive_decoder("Timestamp", fn(data) {
-    case dynamic.string(data) {
+    case decode.run(data, decode.string) {
       Ok(string) -> {
         case timestamp.parse_rfc3339(string) {
           Ok(timestamp) -> Ok(timestamp)
